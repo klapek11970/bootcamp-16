@@ -26,4 +26,8 @@ main button {
   font-weight: 1000;
   color: white;
 }
+
+#countries img {
+  width: 200px;
+}
 /*# sourceMappingURL=style.css.map */

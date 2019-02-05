@@ -6,8 +6,46 @@ var author = document.getElementById("author")
 var prefix = "https://cors-anywhere.herokuapp.com/";
 var tweetLink = prefix+"https://twitter.com/intent/tweet?text=";
 var quoteUrl = prefix+"https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
-
+var url = 'https://restcountries.eu/rest/v2/name/';
 var link = ""
+
+
+var countriesList = document.getElementById('countries');
+document.getElementById('search').addEventListener('click', searchCountries);
+
+function searchCountries() {
+    var countryName = document.getElementById('country-name').value;
+    if(!countryName.length) countryName = 'Poland';
+		
+		fetch(url + countryName)
+        .then(function(resp) {
+            return resp.json();
+        })
+        .then(showCountriesList);
+}
+
+function showCountriesList(resp) {
+	console.log(resp)
+  countriesList.innerHTML = '';
+	resp.forEach(function(item){
+    var liEl = document.createElement('li');
+    liEl.innerText = item.name;
+		
+		var p = document.createElement('p');
+		p.innerText = "capital: "+item.capital
+    liEl.appendChild(p);	
+		
+		var p = document.createElement('p');
+		p.innerText = "region: "+item.region
+    liEl.appendChild(p);	
+		
+		var img = document.createElement('img');
+		img.src = item.flag
+    liEl.appendChild(img);
+		
+    countriesList.appendChild(liEl);
+	});
+}
 
 document.getElementById("joke").addEventListener('click', function(){
 	getJoke()
