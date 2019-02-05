@@ -2,4 +2,25 @@
 
 body {
 	font-family: sans-serif;
+	font-size: 15px;
+	color: white;
+	background-color: #55acee;
+}
+
+main{
+	margin-top: 10vh;
+	text-align: center;
+
+	button{
+		display:block;
+		width: 400px;
+		margin: 50px auto;
+		background-color: rgba(0,0,0,0);
+		border-radius: 10px;
+		padding: 10px;
+		font-family: sans-serif;
+		font-size: 15px;
+		font-weight: 1000;
+		color: white;
+	}
 }
