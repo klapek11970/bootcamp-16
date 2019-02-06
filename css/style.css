@@ -27,6 +27,11 @@ main button {
   color: white;
 }
 
+main button:disabled {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.2);
+}
+
 #countries img {
   width: 200px;
 }
